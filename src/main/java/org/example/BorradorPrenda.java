@@ -13,25 +13,19 @@ public class BorradorPrenda {
   }
 
   public Prenda guardar() {
-    if(! validar(this.tipoPrenda, this.trama, this.color)) throw new RuntimeException();
-    return new Prenda(this.tipoPrenda, this.trama, this.color, this.colorSecundario);
+    validar(this.tipoPrenda, this.trama, this.color);
+    Prenda prenda = new Prenda();
+    prenda.setTipoPrenda(this.tipoPrenda);
+    prenda.setColor(this.color);
+    prenda.setColorSecundario(this.colorSecundario);
+    return prenda;
   }
 
-  private boolean validar(TipoPrenda tipoPrenda, TramaDeTela trama, Color color) {
-    // TODO
-
-    return true;
+  private void validar(TipoPrenda tipoPrenda, TramaDeTela trama, Color color) {
+    if(tipoPrenda == null || trama == null || color == null) {
+      throw new BorradorNoAptoException("Falta definir alguno de los atributos escenciales");
+    }
   }
-
-
-  public Categoria getCategoria() {
-    return tipoPrenda.getCategoria();
-  }
-
-  public TramaDeTela getTrama() {
-    return tipoPrenda.getTrama();
-  }
-
 
 
   public void setTrama(TramaDeTela trama) {

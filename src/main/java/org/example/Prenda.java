@@ -1,24 +1,21 @@
 package org.example;
 
 public class Prenda {
-  private final TipoPrenda tipoPrenda;
-  private TramaDeTela trama;
-  public Color color;
-  public Color colorSecundario;
+  private TipoPrenda tipoPrenda;
+  private Color color;
+  private Color colorSecundario;
 
-  public Prenda(TipoPrenda tipoPrenda, TramaDeTela trama,
-                Color color, Color colorSecundario) {
-    this.tipoPrenda = tipoPrenda;
-    tipoPrenda.setTrama(trama);
-    this.color = color;
-    this.colorSecundario = colorSecundario;
+  public Color getColorSecundario() {
+    return colorSecundario;
   }
 
-  public Prenda(TipoPrenda tipoPrenda, TramaDeTela trama,
-                Color color) {
-    this(tipoPrenda, trama, color, null);
+  public Color getColor() {
+    return color;
   }
 
+  public TipoPrenda getTipoPrenda() {
+    return tipoPrenda;
+  }
 
   public Categoria getCategoria() {
     return tipoPrenda.getCategoria();
@@ -28,5 +25,22 @@ public class Prenda {
     return tipoPrenda.getTrama();
   }
 
+
+
+
+  public void setTipoPrenda(TipoPrenda tipoPrenda) {
+    this.tipoPrenda = tipoPrenda;
+  }
+  public void setTrama(TramaDeTela trama) {
+    this.tipoPrenda.setTrama(trama);
+  }
+
+  public void setColorSecundario(Color colorSecundario) {
+    this.colorSecundario = colorSecundario;
+  }
+
+  public void setColor(Color color) {
+    this.color = color;
+  }
 }
 
