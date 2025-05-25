@@ -1,9 +1,12 @@
-package org.example;
+package org.example.prenda;
+
+import java.util.Objects;
 
 public class Prenda {
   private TipoPrenda tipoPrenda;
   private Color color;
   private Color colorSecundario;
+  private float temperaturaMaxima;
 
   public Color getColorSecundario() {
     return colorSecundario;
@@ -23,6 +26,10 @@ public class Prenda {
 
   public TramaDeTela getTrama() {
     return tipoPrenda.getTrama();
+  }
+
+  public boolean esAptaParaTemperatura(float temperatura) {
+    return temperatura <= temperaturaMaxima;
   }
 
 

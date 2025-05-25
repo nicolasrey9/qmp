@@ -1,4 +1,4 @@
-package org.example;
+package org.example.prenda;
 
 public class Color {
   private final int rojo, verde, azul;

@@ -1,5 +1,6 @@
-package org.example;
+package org.example.prenda;
 
+import org.example.exceptions.BorradorNoAptoException;
 import java.util.Objects;
 
 public class BorradorPrenda {
@@ -28,9 +29,6 @@ public class BorradorPrenda {
   }
 
 
-  public void setTrama(TramaDeTela trama) {
-    tipoPrenda.setTrama(trama);
-  }
 
   public void setColor(Color color) {
     this.color = color;
