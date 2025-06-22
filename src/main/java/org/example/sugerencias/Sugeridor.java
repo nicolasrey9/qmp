@@ -1,6 +1,10 @@
-package org.example;
+package org.example.sugerencias;
 
+import org.example.Guardarropas;
+import org.example.Vestimenta;
 import org.example.prenda.Prenda;
+
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -13,14 +17,16 @@ public class Sugeridor {
     this.guardarropas = guardarropas;
   }
 
-  Vestimenta getVestimentaRandom() {
-    return new Vestimenta(
+  public Sugerencia getVestimentaRandom() {
+    Vestimenta vestimenta = new Vestimenta(
         guardarropas.getPrendaSuperior(),
         guardarropas.getPrendaInferior(),
         guardarropas.getPrendaPies());
+
+    return new Sugerencia((Set<Vestimenta>) Arrays.asList(vestimenta));
   }
 
-  Set<Vestimenta> getAllCombinations(Predicate<Prenda> filtro) {
+  Sugerencia getAllCombinations(Predicate<Prenda> filtro) {
     filtro = filtro != null ? filtro : Prenda -> true;
     Set<Prenda> prendasSuperiores = filtrarSet(guardarropas.getPrendasSuperiores(), filtro);
     Set<Prenda> prendasInferiores = filtrarSet(guardarropas.getPrendasInferiores(), filtro);
@@ -36,7 +42,7 @@ public class Sugeridor {
         )
     );
 
-    return vestimentas;
+    return new Sugerencia(vestimentas);
   }
 
   Set<Prenda> filtrarSet(Set<Prenda> prendas, Predicate<Prenda> filtro) {

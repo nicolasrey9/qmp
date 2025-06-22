@@ -2,7 +2,7 @@ package org.example.api;
 
 import java.util.*;
 
-public final class AccuWeatherAPI {
+public class AccuWeatherAPI {
 
   public final List<Map<String, Object>> getWeather(String ciudad) {
     return Arrays.asList(new HashMap<String, Object>() {{
@@ -20,5 +20,8 @@ public final class AccuWeatherAPI {
         put("UnitType", 18);
       }});
     }});
+  }
+  public Map<String, List<String>> getAlerts(String ciudad) {
+    return new HashMap<>();
   }
 }

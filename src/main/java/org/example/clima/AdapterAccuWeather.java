@@ -7,6 +7,10 @@ import java.util.Map;
 public class AdapterAccuWeather implements ServicioDeObtencionDelClima {
   private final AccuWeatherAPI api = new AccuWeatherAPI();
 
+  @Override
+  public List<Alerta> getAlertas() {
+    return List.of();
+  }
 
   @Override
   public float getTemperatura() {
